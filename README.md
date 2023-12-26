@@ -18,3 +18,13 @@
 ``
     npm run start
 ``
+### Setup instructions for bootstrap
+``
+    npm install react-bootstrap bootstrap
+
+``
+### Adding Plugins and dependencies
+```
+    npm install @reduxjs/toolkit react-redux react-router-dom react-icons axios react-hot-toast
+    
+```
