@@ -3,3 +3,12 @@ body{
   max-width: 1440px;
   position:relative;
 }
+.signup-container {
+  background-image: url('https://cutewallpaper.org/21/digital-world-wallpaper/World-Map-Background-International-Conference-Call-Hd-.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

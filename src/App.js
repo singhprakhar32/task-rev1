@@ -1,11 +1,17 @@
-import { Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import SignupComponent from "./components/SignupComponent";
+
 function App() {
+    const appRouter = createBrowserRouter([
+        {
+          path: "/",
+          element: <SignupComponent />,
+        },
+      ]);
   return (
-    <>
-      <Routes>
-        
-      </Routes>
-    </>
+    <div>
+    <RouterProvider router={appRouter} />
+  </div>
   );
 }
 

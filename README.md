@@ -25,6 +25,6 @@
 ```
 ### Adding Plugins and dependencies
 ```
-    npm install @reduxjs/toolkit react-redux react-router-dom react-icons axios react-hot-toast
+    npm install @reduxjs/toolkit react-redux react-router-dom react-icons axios react-hot-toast formik
 
 ```

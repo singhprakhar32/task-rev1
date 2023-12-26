@@ -1,0 +1,1 @@
+export const BACKGROUND_IMAGE = "https://cutewallpaper.org/21/digital-world-wallpaper/World-Map-Background-International-Conference-Call-Hd-.jpg"
