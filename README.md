@@ -8,7 +8,6 @@
 2. Move into the directory
 ```
     cd task-rev1 
-    cd task-management
 ```
 3. install dependencies
 ```
