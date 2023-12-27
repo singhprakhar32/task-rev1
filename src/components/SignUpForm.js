@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const SignupForm = ({ formType, onToggle }) => {
   const initialValues = {
@@ -32,6 +33,8 @@ const SignupForm = ({ formType, onToggle }) => {
     password: Yup.string().required('Password is required'),
   });
 
+  const navigate = useNavigate(); // Use useNavigate hook
+
   const onSubmit = async (values) => {
     try {
       let url = '';
@@ -41,17 +44,24 @@ const SignupForm = ({ formType, onToggle }) => {
       } else {
         url = 'http://localhost:5000/api/login';
       }
-        const response = await axios.post(url, values);
-        if (response.status === 200) {
-        console.log('API response:', response.data);
+
+      const response = await axios.post(url, values);
+
+      if (response.status === 200) {
+        const token = response?.data?.token;
+        localStorage.setItem('jwtToken', token);
+
+        // Use navigate to redirect after successful signup/login
+        navigate('/task-listing');
+
         toast.success(`${formType === 'signup' ? 'User registered' : 'User logged in'} successfully!`);
       }
     } catch (error) {
       console.error('An error occurred during the API request:', error);
-  
+
       if (error.response) {
         if (error.response.status === 400) {
-          const errorMessage = error.response.data.error;
+          const errorMessage = error?.response?.data?.error;
           toast.error(errorMessage);
         } else {
           toast.error('An error occurred. Please try again.');
@@ -65,6 +75,7 @@ const SignupForm = ({ formType, onToggle }) => {
       }
     }
   };
+
   return (
     <>
       <h1>{formType === 'signup' ? 'Signup Form' : 'Login Form'}</h1>
